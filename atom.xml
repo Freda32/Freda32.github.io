@@ -41,11 +41,33 @@
   </entry>
   
   <entry>
+    <title>切比雪夫多项式</title>
+    <link href="http://example.com/2021/01/23/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
+    <id>http://example.com/2021/01/23/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E5%A4%9A%E9%A1%B9%E5%BC%8F/</id>
+    <published>2021-01-23T07:38:01.000Z</published>
+    <updated>2021-02-02T08:13:21.990Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="切比雪夫多项式"><a href="#切比雪夫多项式" class="headerlink" title="切比雪夫多项式"></a>切比雪夫多项式</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SUM:</span><br><span class="line"><span class="code">递推：切比雪夫多项式是一个关于n的n阶三项递推公式；</span></span><br><span class="line"><span class="code">首一： 对于x区间在[-1,1]之间，切比雪夫多项式对所有的n绝对值收敛且小于1，随着n的增加切比雪夫的首一多项式减小</span></span><br><span class="line"><span class="code"></span></span><br></pre></td></tr></table></figure><p>这里，我们从肢解函数的步骤来分析切比雪夫多项式，话不多说，直接上公式：</p><blockquote><p><kbd> 定义 ：</kbd></p><p>切比雪夫多项式可以表示为：<br>$$<br>T_n(x) =cos (n;cos^{-1}(x)),;;(-1 \leq x \leq1,,n\in Z^+)<br>$$<br>为了简化操作， 令$\theta =cos^{-1}(x)$ 或 $x =cos(\theta)$，$0 \leq \theta \leq \pi$：<br>$$<br>T_n(x) =cos(n\theta)<br>$$</p></blockquote><p>先不要想很复杂，这只是一个套娃的三角函数，比一般三角函数多了点小性质，就像火影里的血继界限一样，和其他忍者多了小技能，这些技能足够特殊和有用。仔细看看这个函数，不过是一个cos里面套了n个反cos。可是这明明是三角函数，为什么会出现在讲解多项式的地方呢？<del>泰勒说过</del>，在一定区间内，任意的光滑函数曲线都可以用一个多项式函数来表达。猜测一下，函数中的x是变量，n是多项式的阶数。是不是如此呢，接下来，我们就来深入看看这个套娃函数：</p><blockquote><p><kbd> eg :</kbd></p><ol><li>对于 $n =0$, $T_0 (x) =cos(0) =1$</li><li>对于 $n =1$，$T_1(x) =cos(\theta) =x$</li><li>对于 $n =2$， $T_2(x) =cos(2\theta) =2cos^2(\theta)-1 =2x^2-1$</li></ol></blockquote><p>看起来，只要确定了n的值，套娃函数总是可以化简成x的n阶多项式形式。我们进一步验证这一点：</p><blockquote><p><kbd>性质 1：</kbd> </p><p>三角函数的恒等变换适用于切比雪夫多项式，$对于 n\geq 1:$<br>$$<br>\begin{align}<br>T_{n+1}(x) &amp;=cos[(n+1)\theta ]=cos(n\theta +\theta)&amp;&amp;(1)\<br>&amp; =cos(n\theta)cos(\theta)-sin(n\theta)sin(\theta)\<br>T_{n-1}(x) &amp;= cos[(n-1)\theta]=cos(n\theta-\theta)&amp;&amp;(2)\<br>&amp;=cos(n\theta)cos(\theta)+sin(n\theta)sin(\theta)<br>\end{align}<br>$$<br>将（1）和（2）加起来，得到<strong>三项递推公式</strong>：<br>$$<br>T_{n+1}(x) =2xT_n(x)-T_{n-1}(x),;;n\geq 1<br>$$</p></blockquote><p>有了前面的  n=0,1,2  和后面的递推公式，我们就很容易得到 n =3,4….的情况：</p><p>​        已知  $T_1(x)=x,T_2(x)=2x^2-1$ :<br>$$<br>\begin{align}<br>（a）;;<br>T_3(x) &amp;=2xT_2(x)-T_1(x)\<br>&amp;=2x(2x^2-1)-x\<br>&amp;=4x^3-3x\</p><p>（b）;;<br>T_4(x)&amp;=2xT_3(x)-T_2(x)\<br>&amp;=2x(4x^3-3x)-2x^2+1\<br>&amp;=8x^4-8x^2+1</p><p>\end{align}<br>$$<br>后一阶总是在前一阶上$\times x$，升高一阶，又仔细看了看，好像最高阶的系数和2的n次方有关系，也就是说，$T_n(x)$ 可以简化成 $2^{n-1}·x^n+P_{n-1}$ ，2的n-1乘以x的n次方并加上后面项的形式。</p><p>接下来我们想进一步讨论一下n对多项式性质的影响，这里我们引入首一多项式，也就是多项式的最高阶前面系数为1，并用$\widetilde{T}_n(x)$ 表示。<br>$$<br>\widetilde{T}_n(x) =\frac{1}{2^{n-1}}T_n(x)<br>$$<br>例如 n=4 时，$\widetilde{T}_4(x)$ =$x^4 -x^2+\frac{1}{8}$。</p><p>为什么要引入首一多项式形式呢？还记得切比雪夫多项式的公式是一个cos函数么，函数出生是就注定了它的函数区间只能在[-1,1]之间，且自变量x的取值范围也是[-1,1]。这是一个很强大的限制条件，特别是成为首一多项式即变成切比雪夫的修正形式之后，我们用公式来看：</p><p>首先，对所有的$n \geq 0,x\in[-1,1]$，都有$|T_n(x)| \leq 1$；</p><p>然后，我们引入了首一多项式 $\widetilde{T}_n(x) =\frac{1}{2^{n-1}}T_n(x)$ ；</p><p>于是我们就有：<br>$$<br>\widetilde{T}_n(x) =\frac{1}{2^{n-1}}T_n(x)=x^n+P_{n-1}\</p><p>—————– ;\<br>|\widetilde{T}_n(x)|\leq \frac{1}{2^{n-1}}<br>$$</p><blockquote><p><kbd>性质 2：</kbd></p><ol><li>忽略低此项 $P_{n-1}$，可以认为 $x^n$ 为一个根的取值不随n的增加而变化的首一多项式；</li><li>设整数$n \geq 1$， 考虑所有可能的n次首一多项式，则在[-1,1]上具有最小极大绝对值的n次首一多项式是修正的切比雪夫多项式 $\widetilde{T}_n(x)$，它在$x\in$[-1,1]上的极大值是$\frac{1}{2^{n-1}}$，随 n增大，$\widetilde{T}_n(x)$ 减小。</li></ol></blockquote><p>这两个性质（性质1和性质2）使得切比雪夫多项式能够运用于拉格朗日插值，并解决龙格现象。其中第1个明确了切比雪夫的多项式形式，并为因式分解法求根提供依据，第2个性质的第1点确定了切比雪夫插值节点，第2点保证了龙格现象不再发生。</p><p>切比雪夫多项式是如何运用在插值中的，请看下回分解。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;切比雪夫多项式&quot;&gt;&lt;a href=&quot;#切比雪夫多项式&quot; class=&quot;headerlink&quot; title=&quot;切比雪夫多项式&quot;&gt;&lt;/a&gt;切比雪夫多项式&lt;/h1&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cla</summary>
+      
+    
+    
+    
+    
+    <category term="math" scheme="http://example.com/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>1st</title>
     <link href="http://example.com/2021/01/13/1st/"/>
     <id>http://example.com/2021/01/13/1st/</id>
     <published>2021-01-13T04:41:25.000Z</published>
-    <updated>2021-02-02T07:30:46.343Z</updated>
+    <updated>2021-02-02T07:35:59.279Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><p>内容</p><hr><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>123</p><h2 id="第四篇"><a href="#第四篇" class="headerlink" title="第四篇"></a>第四篇</h2>]]></content>
     
@@ -58,6 +80,8 @@
       
     
     
+    
+    <category term="机器学习" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
     <category term="machine learning" scheme="http://example.com/tags/machine-learning/"/>
