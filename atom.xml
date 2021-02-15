@@ -6,7 +6,7 @@
   <link href="https://github.com/Freda32/Freda32.github.io/atom.xml" rel="self"/>
   
   <link href="https://github.com/Freda32/Freda32.github.io/"/>
-  <updated>2021-02-04T03:47:37.550Z</updated>
+  <updated>2021-02-04T07:47:10.244Z</updated>
   <id>https://github.com/Freda32/Freda32.github.io/</id>
   
   <author>
@@ -21,14 +21,17 @@
     <link href="https://github.com/Freda32/Freda32.github.io/2021/02/04/test/"/>
     <id>https://github.com/Freda32/Freda32.github.io/2021/02/04/test/</id>
     <published>2021-02-04T03:40:08.000Z</published>
-    <updated>2021-02-04T03:47:37.550Z</updated>
+    <updated>2021-02-04T07:47:10.244Z</updated>
     
-    <content type="html"><![CDATA[<p>![export (1)](test/export (1).png)![1](./export (1).png)</p>]]></content>
+    <content type="html"><![CDATA[<p>1</p><img src="/2021/02/04/test/export.jpg" class><p>2</p><p><img src="/Freda32.github.io/2021/02/04/test/export.png" alt></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;![export (1)](test/export (1).png)![1](./export (1).png)&lt;/p&gt;
+    <summary type="html">&lt;p&gt;1&lt;/p&gt;
+&lt;img src=&quot;/2021/02/04/test/export.jpg&quot; class&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Freda32.github.io/2021/02/04/test/export.png&quot; alt&gt;&lt;/p&gt;
 </summary>
       
     
